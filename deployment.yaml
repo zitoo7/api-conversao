@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: conversor
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: conversor
+  template:
+    metadata:
+      labels:
+        app: conversor
+    spec:
+      containers:
+        - name: conversor
+          image: zitoo/apt-conversao:v1
+          ports:
+            - containerPort: 8080
